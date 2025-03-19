@@ -2,7 +2,7 @@
 
 sudo timedatectl set-timezone Asia/Jakarta
 echo "----------------------------------------------------"
-echo " CACTI INSTALLTON DEBIAN "
+echo " Install Cacti debian12 "
 echo "----------------------------------------------------"
 sleep 2
 echo ""
