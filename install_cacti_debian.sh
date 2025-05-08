@@ -101,35 +101,37 @@ echo " download cacti versi terbaru "
 echo "----------------------------------------------------"
 sleep 2
 
-wget https://www.cacti.net/downloads/cacti-latest.tar.gz --no-check-certificate
+curl -L -O https://github.com/Cacti/cacti/archive/refs/tags/release/1.2.30.tar.gz
+git clone https://github.com/Cacti/cacti.git
+cp cacti /var/www/html
 
 echo "----------------------------------------------------"
 echo " Ekstrak Cacti "
 echo "----------------------------------------------------"
 sleep 2
 
-tar -zxvf cacti-latest.tar.gz
+tar -zxvf cacti-1.2.30.tar.gz
 
 echo "----------------------------------------------------"
 echo " Copy Cacti ke Folder /var/www/html"
 echo "----------------------------------------------------"
 sleep 2
 
-cp -a cacti-1*/. /var/www/html
+cp -a cacti-1.2.30*/. /var/www/html
 
 chown -R www-data:www-data /var/www/html/
 
 chmod -R 775 /var/www/html/
 
-mysql $namadb < /var/www/html/cacti.sql
+mysql $namadb < /var/www/html/cacti/cacti.sql
 
-cp /var/www/html/include/config.php.dist /var/www/html/include/config.php
+cp /var/www/html/cacti/include/config.php.dist /var/www/html/cacti/include/config.php
 
-sed -i 's/database_default  = '\''cacti/database_default  = '\'''$namadb'/g' /var/www/html/include/config.php
+sed -i 's/database_default  = '\''cacti/database_default  = '\'''$namadb'/g' /var/www/html/cacti/include/config.php
 
-sed -i 's/database_password = '\''cactiuser/database_password = '\'''$passdb'/g' /var/www/html/include/config.php
+sed -i 's/database_password = '\''cactiuser/database_password = '\'''$passdb'/g' /var/www/html/cacti/include/config.php
 
-sed -i 's/url_path = '\''\/cacti/url_path = '\''/g' /var/www/html/include/config.php
+sed -i 's/url_path = '\''\/cacti/url_path = '\''/g' /var/www/html/cacti/include/config.php
 
 echo "----------------------------------------------------"
 echo " Tambah cacti di cronjob"
