@@ -103,7 +103,7 @@ sleep 2
 
 curl -L -O https://github.com/Cacti/cacti/archive/refs/tags/release/1.2.30.tar.gz
 git clone https://github.com/Cacti/cacti.git
-cp cacti /var/www/html
+cp -r cacti /var/www/html
 
 echo "----------------------------------------------------"
 echo " Ekstrak Cacti "
