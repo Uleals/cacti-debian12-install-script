@@ -15,7 +15,7 @@ sleep 2
 echo "----------------------------------------------------"
 echo "Install Paket pendukung Cacti"
 echo "----------------------------------------------------"
-apt install cron snmp php-snmp rrdtool librrds-perl unzip curl git gnupg2 -y
+apt install cron snmp php-snmp rrdtool librrds-perl unzip curl git gnupg2 curl -y
 
 sleep 2
 echo "----------------------------------------------------"
@@ -110,14 +110,14 @@ echo " Ekstrak Cacti "
 echo "----------------------------------------------------"
 sleep 2
 
-tar -zxvf cacti-1.2.30.tar.gz
+tar -zxvf 1.2.30.tar.gz
 
 echo "----------------------------------------------------"
 echo " Copy Cacti ke Folder /var/www/html"
 echo "----------------------------------------------------"
 sleep 2
 
-cp -a cacti-1.2.30*/. /var/www/html
+cp -a cacti-release-1.2.30*/. /var/www/html
 
 chown -R www-data:www-data /var/www/html/
 
