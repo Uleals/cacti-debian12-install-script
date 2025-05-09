@@ -102,7 +102,6 @@ echo "----------------------------------------------------"
 sleep 2
 
 git clone https://github.com/Cacti/cacti.git
-cp -r cacti /var/www/html
 
 echo "----------------------------------------------------"
 echo " Copy Cacti ke Folder /var/www/html"
