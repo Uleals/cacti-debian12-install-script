@@ -101,23 +101,15 @@ echo " download cacti versi terbaru "
 echo "----------------------------------------------------"
 sleep 2
 
-curl -L -O https://github.com/Cacti/cacti/archive/refs/tags/release/1.2.30.tar.gz
 git clone https://github.com/Cacti/cacti.git
 cp -r cacti /var/www/html
-
-echo "----------------------------------------------------"
-echo " Ekstrak Cacti "
-echo "----------------------------------------------------"
-sleep 2
-
-tar -zxvf 1.2.30.tar.gz
 
 echo "----------------------------------------------------"
 echo " Copy Cacti ke Folder /var/www/html"
 echo "----------------------------------------------------"
 sleep 2
 
-cp -a cacti-release-1.2.30*/. /var/www/html
+cp -r cacti*/. /var/www/html
 
 chown -R www-data:www-data /var/www/html/
 
